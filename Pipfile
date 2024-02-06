@@ -7,6 +7,7 @@ name = "pypi"
 pyautogui = "*"
 pystray = "*"
 pysimplegui = "*"
+pillow = "10.2.0"
 
 [dev-packages]
 
