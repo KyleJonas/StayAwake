@@ -8,7 +8,7 @@ class GUI(tk.Tk):
         super().__init__()
 
         self.title("Stay Awake")
-        self.iconbitmap("images/coffee.ico")
+        # self.iconbitmap("images/coffee.ico")
         self.geometry("400x200")
 
         # main layout for widgets
@@ -29,20 +29,22 @@ class GUI(tk.Tk):
         tkimage = ImageTk.PhotoImage(Image.open("images/coffee_100.jpg"))
         image = ttk.Label(main_frame, image=tkimage).grid(row=1, column=1)
         button = ttk.Button(main_frame, text="Cancel", command=self.Close).grid(row=2, column=1)
-        
+
         # Make X button use close method in order to kill awake process
         self.protocol("WM_DELETE_WINDOW", self.Close)
 
         thread = threading.Thread(target=self.Awake)
         # makes the Awake thread terminate when the user exits the window
-        thread.daemon = True 
+        thread.daemon = True
         thread.start()
 
         self.mainloop()
 
     def Awake(self):
         while True:
-            pyautogui.press('f15')
+            # print("Button press")
+            pyautogui.press('volumeup')
+            pyautogui.press('volumedown')
             time.sleep(120)
 
     def Close(self):
