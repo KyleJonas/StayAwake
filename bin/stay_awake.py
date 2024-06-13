@@ -7,6 +7,7 @@ class GUI(tk.Tk):
     def __init__(self):
         super().__init__()
 
+        # Tkinter
         self.title("Stay Awake")
         # self.iconbitmap("images/coffee.ico")
         self.geometry("400x200")
@@ -33,18 +34,19 @@ class GUI(tk.Tk):
         # Make X button use close method in order to kill awake process
         self.protocol("WM_DELETE_WINDOW", self.Close)
 
+        self.after(100, self.Start)
+        self.mainloop()
+
+    def Start(self):
         thread = threading.Thread(target=self.Awake)
         # makes the Awake thread terminate when the user exits the window
         thread.daemon = True
         thread.start()
 
-        self.mainloop()
-
     def Awake(self):
+        screen_size_x, screen_size_y = pyautogui.size()
         while True:
-            # print("Button press")
-            pyautogui.press('volumeup')
-            pyautogui.press('volumedown')
+            pyautogui.press('f15')
             time.sleep(120)
 
     def Close(self):

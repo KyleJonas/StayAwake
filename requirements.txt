@@ -9,3 +9,4 @@ PyScreeze==0.1.28
 pystray==0.19.5
 pytweening==1.2.0
 six==1.16.0
+python3-xlib>=0.15
