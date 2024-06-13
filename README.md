@@ -1,5 +1,5 @@
 # StayAwake
-Python GUI to keep the computer active and awake by pressing the volume up and volume down key every 2 minutes
+Python GUI to keep the computer active and awake by pressing the F15 key every 2 minutes
 
 ![App](images/app.png)
 
